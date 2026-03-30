@@ -14,8 +14,6 @@ def main():
     for wine in wines_from_xlsx:
         wines_by_category[wine['Категория']].append(wine)
 
-    pprint.pprint(wines_by_category)
-
     age = datetime.now().year - 1920
     time = 'лет' if age % 10 == 0 or age % 10 >= 5 else 'года' if age % 10 >= 2 else 'год'
 
