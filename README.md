@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 Или:
 ```bash
-pip install pandas jinja2 openpyxl
+pip install pandas jinja2 openpyxl argparse
 ```
 
 ---
@@ -57,10 +57,50 @@ pip install pandas jinja2 openpyxl
 
 ---
 
+## 📊 Формат данных
+
+Файл `wine3.xlsx` должен содержать таблицу следующего вида:
+
+| Название | Категория | Цена | Описание |
+|----------|----------|------|----------|
+| Вино     | Красное  | 1200 | Мягкий вкус с нотами ягод |
+| Вино     | Белое    | 1500 | Свежий фруктовый аромат   |
+| Вино     | Красное  | 1800 | Насыщенный вкус           |
+
+Можно использовать файл `wine3.xlsx` из репозитория как образец и заменить данные своими.
+
+Важно:
+- названия колонок должны совпадать точно  
+- используется колонка **"Категория"** для группировки  
+
+---
+
 ### 5. Запуск
 ```bash
 python main.py
 ```
+
+Также можно указать свой файл с данными:
+
+```bash
+python main.py --wine-file my_wines.xlsx
+```
+
+Или через переменную окружения:
+
+**Linux / macOS**
+```bash
+export WINE_FILE=my_wines.xlsx
+python main.py
+```
+
+**Windows**
+```bash
+set WINE_FILE=my_wines.xlsx
+python main.py
+```
+
+---
 
 ### 6. Открыть в браузере
 
