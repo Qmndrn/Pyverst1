@@ -4,7 +4,6 @@ from collections import defaultdict
 
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import pprint
 
 
 def main():
