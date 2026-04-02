@@ -12,8 +12,8 @@ def main():
     parser = argparse.ArgumentParser(description='Wine site')
     parser.add_argument(
         '--wine-file',
-        default=os.getenv('wine3.xlsx'),
-        help='Путь к Excel файлу с данными (по умолчанию: wine3.xlsx)'
+        default=os.getenv('wine.xlsx'),
+        help='Путь к Excel файлу с данными (по умолчанию: wine.xlsx)'
     )
 
     args = parser.parse_args()
@@ -24,8 +24,8 @@ def main():
     for wine in wines_from_xlsx:
         wines_by_category[wine['Категория']].append(wine)
 
-    age = datetime.now().year - 1920
-    age_word = 'лет' if age % 10 == 0 or age % 10 >= 5 else 'года' if age % 10 >= 2 else 'год'
+    winery_age = datetime.now().year - 1920
+    age_word = 'лет' if winery_age % 10 == 0 or winery_age % 10 >= 5 else 'года' if winery_age % 10 >= 2 else 'год'
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -34,7 +34,7 @@ def main():
     template = env.get_template('template.html')
     rendered_page = template.render(
         wines=wines_by_category,
-        age=age,
+        age=winery_age,
         time=age_word
     )
 
